@@ -14,7 +14,6 @@ def optimizer_driver_to_pickup_points(duration_matrix, driver_count, trips_count
             horizontal_index += driver_count
         else: 
             horizontal_index += trips_count_pickup_list[i]-1
-
         in_trips_driver_selected=[]
 
         for j in range(trips_count_pickup_list[i]):
@@ -25,10 +24,15 @@ def optimizer_driver_to_pickup_points(duration_matrix, driver_count, trips_count
                 else:
                     if time < in_trips_driver_selected[3]:
                         in_trips_driver_selected = [i, j, k, time]
+            selected_driver = in_trips_driver_selected[2]
+            print(selected_driver)
+            duration_matrix[in_trips_driver_selected[2]][0:len(duration_matrix[0])-1]=INF
+            print(duration_matrix)
         driver_assigned_to_trips.append(in_trips_driver_selected)
-    print(driver_assigned_to_trips)
+    return(driver_assigned_to_trips)
             
-
+def rotate_trips(durations, driver_count, step):
+    pass
     
 
 
